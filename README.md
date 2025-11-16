@@ -19,7 +19,7 @@ We recommend using [`uv`](https://docs.astral.sh/uv/).
 ```bash
 git clone https://github.com/yberreby/dinov3-imagenet-1k-probes.git
 cd dinov3-imagenet-1k-probes
-uv run demo.py
+uv run demo.py # or `uv run ipython -i demo.py` for a REPL
 ```
 
 Example:
