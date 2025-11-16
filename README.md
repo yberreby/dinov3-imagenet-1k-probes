@@ -55,14 +55,17 @@ We recommend using [`uv`](https://docs.astral.sh/uv/).
 ### Using `from_pretrained`
 
 ```
-❯ uvx --with 'https://github.com/yberreby/dinov3-imagenet-1k-probes.git' ipython
-    Updated https://github.com/yberreby/dinov3-imagenet-1k-probes.git (41a0d0b86dbbe3b8f7b3a776fe0aa5f1fb46f635)
-      Built dinov3-probes @ git+https://github.com/yberreby/dinov3-imagenet-1k-probes.git@41a0d0b86dbbe3b8f7b3a776fe0aa5f1fb46f635
-Installed 44 packages in 225ms
+❯ uvx --with 'https://github.com/yberreby/dinov3-probes.git' ipython
+⠙ Resolving dependencies...
+    Updated https://github.com/yberreby/dinov3-probes.git (a90e04e58723a63f4488591418dec87391a14346)
+      Built dinov3-probes @ git+https://github.com/yberreby/dinov3-probes.git@a90e04e58723a63f4488591418dec87391a14346
+Installed 44 packages in 482ms
 Python 3.12.11 (main, Jul  8 2025, 20:41:49) [Clang 20.1.4 ]
 Type 'copyright', 'credits' or 'license' for more information
 IPython 9.7.0 -- An enhanced Interactive Python. Type '?' for help.
-Tip: The `%timeit` magic has a `-o` flag, which returns the results, making it easy to plot. See `%timeit?`.
+Tip: You can find how to type a LaTeX symbol by back-completing it, eg `\θ<tab>` will expand to `\theta`.
+
+In [1]:
 
 In [1]: from dinov3_probes import DINOv3LinearClassificationHead
 
@@ -70,24 +73,21 @@ In [2]: probe = DINOv3LinearClassificationHead.from_pretrained("yberreby/dinov3-
 
 In [3]: probe
 Out[3]: DINOv3LinearClassificationHead(in_features=768, out_features=1000, bias=True)
+
+In [4]:
 ```
 
 ### Detailed example
 
 ```bash
-git clone https://github.com/yberreby/dinov3-imagenet-1k-probes.git
-cd dinov3-imagenet-1k-probes
+git clone https://github.com/yberreby/dinov3-probes.git
+cd dinov3-probes
 uv run demo.py # or `uv run ipython -i demo.py` for a REPL
 ```
 
 Example:
 ```
-dinov3-imagenet-1k-probes on  main [?] is 📦 v0.1.0 via 🐍 v3.13.8
-❯ uv run ipython -i demo.py
-Python 3.12.11 (main, Jul  8 2025, 20:41:49) [Clang 20.1.4 ]
-Type 'copyright', 'credits' or 'license' for more information
-IPython 9.7.0 -- An enhanced Interactive Python. Type '?' for help.
-Tip: You can use Ctrl-O to force a new line in terminal IPython
+❯ uv run python demo.py
 Importing dependencies... done
 Loading linear probe: vitb16 @ 512x512... done
   IN1k val top-1: 85.00%
@@ -110,44 +110,6 @@ Top-5 predictions:
   3. tiger cat                                10.51%
   4. remote control, remote                    6.67%
   5. mouse, computer mouse                     1.58%
-
-In [1]: probe
-Out[1]: Linear(in_features=768, out_features=1000, bias=True)
-
-In [2]: model
-Out[2]:
-DINOv3ViTModel(
-  (embeddings): DINOv3ViTEmbeddings(
-    (patch_embeddings): Conv2d(3, 768, kernel_size=(16, 16), stride=(16, 16))
-  )
-  (rope_embeddings): DINOv3ViTRopePositionEmbedding()
-  (layer): ModuleList(
-    (0-11): 12 x DINOv3ViTLayer(
-      (norm1): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-      (attention): DINOv3ViTAttention(
-        (k_proj): Linear(in_features=768, out_features=768, bias=False)
-        (v_proj): Linear(in_features=768, out_features=768, bias=True)
-        (q_proj): Linear(in_features=768, out_features=768, bias=True)
-        (o_proj): Linear(in_features=768, out_features=768, bias=True)
-      )
-      (layer_scale1): DINOv3ViTLayerScale()
-      (drop_path): Identity()
-      (norm2): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-      (mlp): DINOv3ViTMLP(
-        (up_proj): Linear(in_features=768, out_features=3072, bias=True)
-        (down_proj): Linear(in_features=3072, out_features=768, bias=True)
-        (act_fn): GELUActivation()
-      )
-      (layer_scale2): DINOv3ViTLayerScale()
-    )
-  )
-  (norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
-)
-
-In [3]: probs.shape
-Out[3]: torch.Size([1, 1000])
-
-In [4]:
 ```
 
 
