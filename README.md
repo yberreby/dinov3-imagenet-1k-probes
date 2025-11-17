@@ -11,8 +11,7 @@ They can be used directly with Meta's official checkpoints.
 As in the original DINOv3 paper, we used **512x512 inputs** (1024 input tokens),
 and trained the probes on the IN1k training set with Inception-crop augmentation.
 
-Thanks to a highly-optimized training pipeline, we were able to perform more extensive hyperparameter sweeps than in the original paper.
-As a result, **all of our probes match or exceed the best IN1k-ReAL top-1 validation accuracy reported by the DINOv3 authors**, as seen in Table 14 of the original paper.
+**All of our probes match or exceed the best IN1k-ReAL top-1 validation accuracy reported by the DINOv3 authors**, as seen in Table 14 of the original paper.
 
 We note that the raw IN1k top-1 validation accuracy was not reported by the DINOv3 authors, only the [ReAL](https://github.com/google-research/reassessed-imagenet) top-1 accuracy.
 Here, we report both.
@@ -39,8 +38,6 @@ Here, we report both.
 More probes will be released over time; watch this repository and/or [the corresponding HuggingFace Collection](https://huggingface.co/collections/yberreby/dinov3-imagenet-1k-probes).
 
 ## Performance
-
-Thanks to a high-performance training pipeline, we were able to sweep 
 
 | Probe | [IN-ReAL](https://github.com/google-research/reassessed-imagenet) val top-1 (official / ours) | IN1k val top-1 (ours) |
 |-------|--------------------------------|-------------------|
