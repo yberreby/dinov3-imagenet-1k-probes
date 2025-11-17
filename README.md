@@ -24,6 +24,10 @@ Here, we report both.
   - Base: [`facebook/dinov3-vits16-pretrain-lvd1689m`](https://huggingface.co/facebook/dinov3-vits16-pretrain-lvd1689m)
   - Probe: [`yberreby/dinov3-vits16-lvd1689m-in1k-512x512-linear-clf-probe`](https://huggingface.co/yberreby/dinov3-vits16-lvd1689m-in1k-512x512-linear-clf-probe)
 
+- **ViT-S+/16** @ 512×512
+  - Base: [`facebook/dinov3-vits16plus-pretrain-lvd1689m`](https://huggingface.co/facebook/dinov3-vits16plus-pretrain-lvd1689m)
+  - Probe: [`yberreby/dinov3-vits16plus-lvd1689m-in1k-512x512-linear-clf-probe`](https://huggingface.co/yberreby/dinov3-vits16plus-lvd1689m-in1k-512x512-linear-clf-probe)
+
 - **ViT-B/16** @ 512×512
   - Base: [`facebook/dinov3-vitb16-pretrain-lvd1689m`](https://huggingface.co/facebook/dinov3-vitb16-pretrain-lvd1689m)
   - Probe: [`yberreby/dinov3-vitb16-lvd1689m-in1k-512x512-linear-clf-probe`](https://huggingface.co/yberreby/dinov3-vitb16-lvd1689m-in1k-512x512-linear-clf-probe)
@@ -41,9 +45,9 @@ Thanks to a high-performance training pipeline, we were able to sweep
 | Probe | [IN-ReAL](https://github.com/google-research/reassessed-imagenet) val top-1 (official / ours) | IN1k val top-1 (ours) |
 |-------|--------------------------------|-------------------|
 | [ViT-S/16](https://huggingface.co/yberreby/dinov3-vits16-lvd1689m-in1k-512x512-linear-clf-probe) | 87.0% / **87.09%** | 81.29% |
+| [ViT-S+/16](https://huggingface.co/yberreby/dinov3-vits16plus-lvd1689m-in1k-512x512-linear-clf-probe) | 88.0% / **88.03%** | 82.60% |
 | [ViT-B/16](https://huggingface.co/yberreby/dinov3-vitb16-lvd1689m-in1k-512x512-linear-clf-probe) | 89.3% / **89.54%** | 85.00% |
 | [ViT-L/16](https://huggingface.co/yberreby/dinov3-vitl16-lvd1689m-in1k-512x512-linear-clf-probe) | 90.2% / **90.44%** | 86.70% |
-| ViT-S+/16 (coming soon) | 88.0% / — |  -- |
 | ViT-H+/16 (coming soon) | 90.3% / — |  -- |
 
 The accuracy of the latest probes uploaded on the HF Hub can be queried using `uv run print_metrics.py`.
