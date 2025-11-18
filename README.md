@@ -5,7 +5,7 @@ The 7-billion-parameter flagship model was distilled into a family of smaller Vi
 
 Sadly, only one ImageNet-1k (IN1k) linear classification probe was released: the one for the 7B model.
 
-**Here, we release pretrained linear probes for some of the smaller DINOv3 ViT models.**
+**Here, we release pretrained linear probes for the smaller DINOv3 ViT models.**
 They can be used directly with Meta's official checkpoints.
 
 As in the original DINOv3 paper, we used **512x512 inputs** (1024 input tokens),
